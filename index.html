@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Assignment 8.4</title>
+	<!--CDN -->
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+        $(document).ready(function(){
+            //Time for which Preloader screen will appear 
+        	setTimeout(loadjumbo,4000);
+            //Function to stop loading screen and enabling content scree
+        	function loadjumbo(){
+        		document.getElementById("loader").style.display = "none";
+                document.getElementById("content").style.display = "block";
+        	}
+            //Hide function
+        	$(".btn-danger").click(function(){
+                $("pre").hide();
+        	});
+        	//Show function
+        	$(".btn-success").click(function(){
+                $("pre").show();
+        	}); 
+        	//Change function
+        	$(".btn-info").click(function(){
+               $("pre").toggleClass("tfontcolor");
+        	});
+
+        });
+
+
+	</script>
+
+	<!-- CSS Style-->
+	<style type="text/css">
+	    /*Loader CSS*/
+		#loader{
+			position: absolute;
+			background-color: black;
+			left: 45%;
+            top: 30%;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 16px solid #f3f3f3;
+            border-top: 16px solid lightgrey; /*Portion with different color which give effect of rotating*/
+            animation: roam 2s linear infinite;
+		}
+        /*KeyFrames for Loader*/
+		@keyframes roam {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /*Jumbotron poping*/
+        #content{
+        	animation-name: popup;
+            animation-duration: 1s
+        }
+        /*KeyFrames for jumbotron poping*/
+        @keyframes popup { 
+           from{opacity:0 } 
+           to{opacity:1 }
+        }
+        /*Change button class for content*/
+        .tfontcolor{
+        	font-size: x-large;
+        	color: blue;
+        }
+	</style>	
+</head>
+<body>
+
+	<div id="loader">
+		<h5 style="position:relative;margin:14% 20% 22% 26%;font-size:60px;color:white;">R</h5>
+	</div>
+	
+    <!-- Bootstrap container-->
+	<div class="container" id="content"  style="display: none;">
+		<br>
+		<br>
+		<br>
+		<br>
+		<!-- jumbotron bootstrap class-->
+		<div class="jumbotron">
+		   <pre>Creating a Jumbotron
+                A jumbotron indicates a big box for calling extra attention to some special content or information.
+
+                A jumbotron is displayed as a grey box with rounded corners. It also enlarges the font sizes of the text inside it.
+
+                Tip: Inside a jumbotron you can put nearly any valid HTML, including other Bootstrap elements/classes.
+
+
+
+           </pre>
+
+            <!-- Button for Hide, show, Change-->
+            <button type="button" class="btn btn-danger">Hide</button>
+            <button type="button" class="btn btn-success">Show</button>
+            <button type="button" class="btn btn-info">Change</button>
+		</div>	
+			
+		</div>
+
+	</div>
+
+</body>
+</html>
